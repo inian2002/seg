@@ -23,13 +23,7 @@ def build_anisotropic_mask(data: torch.Tensor,
                            horizontal_ratio: float = 0.18,
                            vertical_ratio: float = 0.10,
                            block_ratio: float = 0.12):
-    """
-    Build a seismic-aware mask for 3D cubes.
 
-    horizontal_ratio: mask H/W slices to emphasize crossline/inline continuity.
-    vertical_ratio  : mask D slices more conservatively to preserve depth cues.
-    block_ratio     : mask one random 3D block for local structure completion.
-    """
     if data.dim() != 5:
         raise ValueError(f"Expected 5D input (B,C,D,H,W), got {tuple(data.shape)}")
 

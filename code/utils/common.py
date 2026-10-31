@@ -4,20 +4,16 @@ import numpy as np
 
 
 def Weak_DA(*args):
-    """
-    Weak spatial augmentation: random flip along D / H / W.
-    All input tensors are flipped synchronously.
-    Shape: (B, C, D, H, W)
-    """
+
     assert len(args) > 0
     out = list(args)
 
     if random.random() < 0.5:
-        out = [torch.flip(x, dims=[-1]) for x in out]   # W
+        out = [torch.flip(x, dims=[-1]) for x in out]
     if random.random() < 0.5:
-        out = [torch.flip(x, dims=[-2]) for x in out]   # H
+        out = [torch.flip(x, dims=[-2]) for x in out]
     if random.random() < 0.5:
-        out = [torch.flip(x, dims=[-3]) for x in out]   # D
+        out = [torch.flip(x, dims=[-3]) for x in out]
 
     return out
 
@@ -33,7 +29,7 @@ def adjust_learning_rate(optimizer, base_lr, max_iters,
 
 
 class LossAverage(object):
-    """Computes and stores the average and current value."""
+
 
     def __init__(self):
         self.reset()

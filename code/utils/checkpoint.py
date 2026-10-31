@@ -1,9 +1,5 @@
 def load_model_state(model, state_dict, verbose=True):
-    """
-    Backward-compatible loading:
-    - old checkpoints can miss recon_head.*
-    - future checkpoints can contain extra keys we do not need
-    """
+
     incompatible = model.load_state_dict(state_dict, strict=False)
     missing = list(getattr(incompatible, 'missing_keys', []))
     unexpected = list(getattr(incompatible, 'unexpected_keys', []))

@@ -16,11 +16,11 @@ class salt_dataset_val(Dataset):
         data = np.load(
             os.path.join(self.data_dir, self.data_list[index]))
 
-        cube  = data['data']    # (D, H, W)
-        label = data['label']   # (D, H, W)  values: 0 / 1
+        cube  = data['data']
+        label = data['label']
 
-        # Raw data already preprocessed externally — no normalization here.
-        cube  = cube[None, ...].astype(np.float32)   # (1, D, H, W)
-        label = label[None, ...].astype(np.float32)  # (1, D, H, W)
+
+        cube  = cube[None, ...].astype(np.float32)
+        label = label[None, ...].astype(np.float32)
 
         return cube, label
