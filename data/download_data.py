@@ -1,4 +1,3 @@
-"""Download author-supplied data assets and verify their SHA-256 digests."""
 import argparse
 import hashlib
 import json
