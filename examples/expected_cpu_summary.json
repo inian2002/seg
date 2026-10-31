@@ -1,0 +1,56 @@
+{
+  "purpose": "Synthetic workflow check, not reproduction of the reported survey metrics.",
+  "seed": 42,
+  "size": 32,
+  "mode": "full",
+  "afvm_labels_preserved": true,
+  "numpy_version": "2.5.0",
+  "demo_beta_range": [
+    0.1,
+    0.2
+  ],
+  "adaptation_mean_absolute_changes": [
+    0.14802122116088867,
+    0.1500081866979599
+  ],
+  "torch_version": "2.11.0+cu130",
+  "device": "cpu",
+  "history": [
+    {
+      "stage": "pretrain",
+      "step": 1,
+      "seg_loss": 0.4851381778717041,
+      "weighted_recon_loss": 0.0008405900443904102
+    },
+    {
+      "stage": "pretrain",
+      "step": 2,
+      "seg_loss": 0.48475462198257446,
+      "weighted_recon_loss": 0.0014627930941060185
+    },
+    {
+      "stage": "finetune",
+      "step": 1,
+      "seg_loss": 0.4858783781528473,
+      "weighted_recon_loss": 0.0008805160177871585
+    },
+    {
+      "stage": "finetune",
+      "step": 2,
+      "seg_loss": 0.48542436957359314,
+      "weighted_recon_loss": 0.0013974150642752647
+    }
+  ],
+  "evaluation": {
+    "TP": 0,
+    "FP": 0,
+    "FN": 2822,
+    "TN": 29946,
+    "IoU": 0.0,
+    "Dice": 0.0,
+    "PA": 0.91387939453125
+  },
+  "base_width": 2,
+  "steps_per_stage": 2,
+  "elapsed_seconds": 3.542
+}
