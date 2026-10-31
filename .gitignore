@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.claude/
+.codex/
+.env
+.env.*
+.venv/
+venv/
+data/*.npy
+data/*.npz
+data/*.part
+*.pth
+*.pt
+output/
+outputs/
