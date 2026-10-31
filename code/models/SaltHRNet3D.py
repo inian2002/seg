@@ -1,7 +1,3 @@
-# ------------------------------------------------------------------------------
-# Copyright (c) Microsoft
-# Licensed under the MIT License.
-# ------------------------------------------------------------------------------
 import logging
 import torch
 import torch.nn as nn
@@ -214,11 +210,7 @@ class HighResolutionModule3D(nn.Module):
 
 
 class SaltHRNet3D(nn.Module):
-    """3D high-resolution network for salt/fault segmentation.
 
-    The constructor and forward contract are shared by the training and
-    inference entry points in this project.
-    """
     def __init__(self, base=8, enable_reconstruction=True):
         super(SaltHRNet3D, self).__init__()
         self.base    = base
