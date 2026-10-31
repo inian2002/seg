@@ -11,17 +11,7 @@ except ImportError:
 
 
 class AdaptiveFourierVarianceMatching:
-    """Adaptive Fourier Variance Matching for 3D seismic NPZ patches.
 
-    Paper equations:
-      v_i = Var(x_i)
-      v_i_norm = clip((v_i - P5) / (P95 - P5), 0, 1)
-      beta_i = beta_min + (1 - v_i_norm) * (beta_max - beta_min)
-      j(i) = argmin_j |v_i^s - v_j^t|
-
-    AFVM keeps the source phase and replaces only low-frequency amplitudes
-    inside the adaptive beta_i window.
-    """
 
     def __init__(self, beta_min=0.005, beta_max=0.03):
         if beta_min <= 0 or beta_max <= 0:
