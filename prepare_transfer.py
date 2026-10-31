@@ -13,19 +13,19 @@ def prepare_transfer(ckpt_path, out_path):
 
     changed = False
 
-    # 1. 删除优化器状态（重置动量，保证迁移微调的绝对公平）
+
     if 'optimizer' in ckpt:
         del ckpt['optimizer']
         print("  -> Removed 'optimizer' state.")
         changed = True
 
-    # 2. 删除 epoch 记录（让 train.py 默认从 Epoch 1 开始微调训练）
+
     if 'epoch' in ckpt:
         del ckpt['epoch']
         print("  -> Removed 'epoch' (will restart from epoch 1).")
         changed = True
 
-    # 如果是旧版本单网络，封装成 dict 防止保存失败
+
     if not isinstance(ckpt, dict):
         ckpt = {'net': ckpt}
         changed = True
@@ -34,7 +34,7 @@ def prepare_transfer(ckpt_path, out_path):
         torch.save(ckpt, out_path)
         print(f"[*] Successfully saved clean transfer checkpoint to: {out_path}\n")
     else:
-        # 如果什么都没删（说明本来就很干净），直接走复制
+
         import shutil
         shutil.copy(ckpt_path, out_path)
         print(f"[*] Checkpoint is already clean. Copied to: {out_path}\n")
