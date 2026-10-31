@@ -1,0 +1,26 @@
+[
+  {
+    "file": "F3_zscore_651_951_256.npy",
+    "bytes": 633959552,
+    "sha256": "0c41299a871c4f52a1ee25ac29c78e1be0dfc8ea8343028e13fd34fd942d82d3",
+    "shape": [
+      651,
+      951,
+      256
+    ],
+    "dtype": "float32",
+    "url": "https://github.com/inian2002/seg/releases/download/famt-salt3d-data-v1/F3_zscore_651_951_256.npy"
+  },
+  {
+    "file": "SEAM_zscore_570_480_355.npy",
+    "bytes": 388512128,
+    "sha256": "5d352ebf56e562f9953658222c158a6e13fe5d99715c109352e9c13db2fb765d",
+    "shape": [
+      570,
+      480,
+      355
+    ],
+    "dtype": "float32",
+    "url": "https://github.com/inian2002/seg/releases/download/famt-salt3d-data-v1/SEAM_zscore_570_480_355.npy"
+  }
+]
