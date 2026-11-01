@@ -36,7 +36,7 @@ The example uses base width 2, 32-cubed inputs and AFVM beta 0.10–0.20 so the 
 python data/download_data.py
 ```
 
-The downloader verifies published sizes and SHA-256 hashes. It preserves the released arrays exactly. See [data documentation](../data/README.md). The files contain seismic amplitudes; they do not contain training labels or pretrained weights.
+The downloader verifies published sizes and SHA-256 hashes. It preserves the released arrays exactly. See [data documentation](../data/README.md). The files contain preprocessed F3 and SEAM seismic amplitude volumes.
 
 Training NPZ files must contain `data` and `label`, both shaped `(D, H, W)`, where `D` is Timeline/Depth, `H` is Inline and `W` is Crossline. Data must be finite, preprocessed `float32` amplitudes. Dense labels are 0 (background) and 1 (salt); sparse training additionally uses -1 (unlabeled). Validation labels must be dense. Do not classify unlabeled voxels as background. Keep only NPZ files in training/validation directories because the supplied loaders enumerate all files.
 
@@ -111,8 +111,8 @@ python code/generate_npz_artifacts.py --input_npz outputs/demo/validation/00.npz
 
 ## Common issues
 
-- Missing `label`: amplitude-only release files are not supervised training samples; use real aligned labels or the synthetic example.
 - Shape mismatch: check axis order and matching data/label shapes. Training expects 3D arrays before the loader adds a channel axis.
 - Out of memory: use the small CPU example first; full settings need substantially more GPU memory. Reduced settings change the experiment.
 - Restore immediately finishes: use a transfer checkpoint with epoch metadata removed for a new fine-tuning run.
 - Unexpected metrics: confirm threshold, label mask, evaluation region, overlap fusion and connected-component settings; do not derive accuracy or recall from IoU/Dice alone.
+  
